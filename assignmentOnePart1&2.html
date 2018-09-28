@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	    <style>
+
+	    .newHeader{
+			color: green;
+			font-weight: 300;
+			font-family: monospace;
+			text-align: center;
+		}
+
+
+	   .circle {
+		    height: 50px;
+		    width: 50px;
+		    border-radius: 50%;
+		  	background-color: #3d9970;
+		  	display: flex;
+		  	justify-content: center;
+		}
+
+		.rectangle {
+			width: 200px;
+			height: 50px;
+			background: red;
+		}
+
+		body {
+		  background: #9b89b7;
+		  font-size: 80%;
+		}
+
+		main {
+		  background: #9566DF;
+		  margin: 20px 0;
+		  padding: 10px;
+		}
+
+		main div {
+		  background: #DF6674;
+		  color: white;
+		  padding: 15px;
+		  max-width: 125px;
+		  margin: 5px;
+		}
+
+		.inline-block-center {
+		  text-align: center;
+		}
+		.inline-block-center div {
+		  display: inline-block;
+		  text-align: left;
+		}
+
+		.flex-center {
+		  display: flex;
+		  justify-content: center;
+		}
+
+		</style>
+ 	</head>   
+  	<body>
+  		<div id="wrapper"></div>
+
+  		<script type="text/javascript">
+  			var myArray = ["#D166DF", "#DF9566","#DFD166","#B1DF66", "#74DF66","#66DF95","#66DFD1","#66B1DF","#6674DF"];
+
+  			for (var k = 0; k < 20; k++) {
+  			
+
+  			var divs = "";
+  			var squares  = "";
+  			for (var i = 0; i < 20; i++) {
+  				var num = Math.floor(Math.random()*8);
+  				var styleColor = '"background:' + myArray[num]+';"';
+  				
+  				squares += "<div style =";
+  				squares +=styleColor;
+  				squares += "></div>"
+  				//console.log("squre!!", squares);
+  			}
+
+  			for (var i = 0; i < 20; i++) {
+  				console.log("loop!!", i);
+  				var element = document.createElement("div")
+				element.className = "newHeader"
+				var numtwo = Math.floor(Math.random()*20+1);
+				//for (var j = 0; j < numtwo; j++) {
+					var num = Math.floor(Math.random()*8);
+	  				var styleColor = '"background:' + myArray[num]+';"';
+	  				if (i%2==0) {
+	  					var shape = "circle";
+	  				}else{
+	  					var shape = "rectangle";
+	  				}
+	  				divs += "<div class = ";
+	  				divs+=shape;
+	  				divs+=" style =";
+	  				divs+=styleColor;
+	  				divs+="></div>"
+	  				console.log("divs",divs);
+
+				//}
+			
+  				//var num = Math.round(Math.random()*8);
+  				//var styleColor = '"background:' + myArray[num]+';"';
+  				//if (i%2==0) {
+  					//var shape = "circle";
+  				//}else{
+  					//var shape = "rectangle";
+  				//}
+
+
+  				var align = "";
+  				if (i%2==0) {
+
+  					//console.log("first", i)
+
+  					align = "justify-content: center;";
+  				} else {
+
+  					//console.log("here!", i)
+  					align = "justify-content: end;";
+  				}
+
+  				console.log("displaying!!");
+  				element.innerHTML = `
+  					<main class="flex-center" style =${styleColor}> ${squares} </main>
+  					<main class="flex-center" style ='${align}' > ${divs}</main>
+				`		
+				//<div class = ${shape} style =${styleColor}></div><div class = ${shape} style =${styleColor}></div>
+			}		
+			
+			document.getElementById("wrapper").appendChild(element)
+		}
+
+
+  			
+
+  		</script>
+
+  	</body>
+</html>
