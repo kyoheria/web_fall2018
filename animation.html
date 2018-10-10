@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	      	<script type="text/javascript">
+
+  	
+  	</script>
+	    <style>
+	    h1{
+	    	color: white;
+	    	text-shadow: 3px 2px red;
+	    }
+	    .button {
+		    background-color: #4CAF50; /* Green */
+		    border: none;
+		    color: white;
+		    padding: 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 4px 2px;
+		    cursor: pointer;
+		    border-radius: 50%;
+		    opacity: 0.6;
+  			transition: 0.3s;
+			cursor: pointer;
+		}
+		.button:hover {
+			opacity: 1
+
+		}
+
+	    #wrapper{
+				width: 100vw;
+			}
+
+	    .newHeader{
+			color: green;
+			font-weight: 300;
+			font-family: monospace;
+			text-align: center;
+		}
+
+		.container{
+				position: relative;
+				display: inline-block;
+				width: 11.11vw;
+				height: 11.11vw;
+				
+		}
+
+	   .circle {
+		    height: 5vw;
+		    width: 5vw;
+		    border-radius: 50%;
+		  	background-color: #3d9970;
+		  	display: flex;
+		  	justify-content: center;
+		}
+
+		.rectangle {
+			width: 5vw;
+			height: 5vw;
+			background: red;
+		}
+
+		body {
+		  background: #9b89b7;
+		  font-size: 80%;
+		  margin: 10px;
+		}
+
+		main {
+		  background: #9566DF;
+		  margin: 20px 0;
+		  padding: 10px;
+		}
+
+		main div {
+		  background: #DF6674;
+		  color: white;
+		  padding: 15px;
+		  max-width: 125vw;
+		  margin: 5px;
+		}
+
+		.inline-block-center {
+		  text-align: center;
+		}
+		.inline-block-center div {
+		  display: inline-block;
+		  text-align: left;
+		}
+
+		.flex-center {
+		  display: flex;
+		  justify-content: center;
+		}
+
+		</style>
+ 	</head>   
+  	<body >
+  		<div id="wrapper">
+  			
+  		</div>
+
+  		<script type="text/javascript">
+  			var myArray = ["#D166DF", "#DF9566","#DFD166","#B1DF66", "#74DF66","#66DF95","#66DFD1","#66B1DF","#6674DF"];
+  			var count =0;
+  			var c =1;
+  			var counter = 0;
+
+
+			function onclick(){
+				console.log("onclick");
+				// var rectangle = document.getElementByClass("rectangle");
+
+  		// 		rectangle.style.background= "red";
+  				document.body.style.background="red";
+  				console.log("onclick");
+  				// counter++;
+  			}
+
+  			for (var k = 0; k < 54; k++) {
+  				console.log(k);
+  				setTimeout(function(){ 
+  				
+
+		  			var divs = "";
+		  			var squares  = "";
+		  		
+		  			for (var i = 0; i < 5; i++) {
+		  				console.log(k);
+		  				var num = Math.floor(Math.random()*8);
+		  				var styleColor = '"background:' + myArray[num]+';"';
+		  				styleColor+='"padding:"'+i+'px:"'
+
+		  				
+		  				squares += "<div style =";
+		  				squares +=styleColor;
+		  				squares += "></div>"
+		  				//console.log("squre!!", squares);
+		  			}
+
+		  			for (var i = 0; i < 2; i++) {
+		  				//console.log("loop!!", i);
+		  				var element = document.createElement("div")
+						element.className = "container"
+						var numtwo = Math.floor(Math.random()*20+1);
+						//for (var j = 0; j < numtwo; j++) {
+						var num = Math.floor(Math.random()*8);
+			  			
+			  			
+			  			if (i%2==0) {
+			  				var shape = "button";
+			  				var styleColor = '"background-color:' + myArray[num]+';"';
+			  				divs += "<button class = ";
+			  				divs+=shape;
+			  				divs+=" style =";
+			  				divs+=styleColor;
+			  				divs+=">"
+			  			}else{
+			  				var shape = "rectangle";
+			  				styleColor+= '"height:"'+100+'px;"'
+			  				var styleColor = '"background:' + myArray[num]+';"';
+			  				divs += "<div class = ";
+			  				divs+=shape;
+			  				divs+=" style =";
+			  				divs+=styleColor;
+			  				divs+="></div></button>"
+			  			}
+			  			
+			  			
+			  			//console.log("divs",divs)
+
+
+		  				console.log("displaying!!");
+		  				element.innerHTML = `
+		  					<button class = button onclick="myFunction(this, 'red')">*</button>
+		  					<main class="flex-center" style =${styleColor}> ${squares} </main>
+		  					<main class="flex-center" style ='' > ${divs}</main>
+						`		
+						//<div class = ${shape} style =${styleColor}></div><div class = ${shape} style =${styleColor}></div>
+
+						c++;
+					}		
+				
+					document.getElementById("wrapper").appendChild(element)
+					window.scrollTo(0,document.body.scrollHeight);
+				},count);
+  				count+=500;
+  			}
+
+  			// var x;
+
+
+  			function myFunction(elmnt,clr) {
+    			elmnt.style.opacity = 1;
+    			elmnt.style.color = red;
+			}
+		</script>
+
+  	</body>
+
+
+</html>
